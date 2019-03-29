@@ -243,14 +243,28 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 
 private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs^  e) {
 			 	int cpt=0;
-
+				if (comboFigure->SelectedIndex == 1)
+					{
+						figureCourante = new Carre();
+								
+					}
+					else
+					{
+						figureCourante = new Cercle();
+					}
 				if (comboFigure->SelectedIndex != 0)
 				{					
 
 					if ( figureCourante != NULL)
 					{
-
-
+						
+							
+							figureCourante->setX(Convert::ToInt32(textX->Text));
+							figureCourante->setY(Convert::ToInt32(textY->Text));
+							figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
+							figureCourante->setCote(Convert::ToInt32(textCote->Text));
+							figureCourante->setPoint(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text));
+							lesFigures.AjouterFigure(figureCourante);
 						DessinerFigure();
 					}
 					comboFigure->SelectedIndex = 0;
@@ -266,13 +280,13 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 		 {
 			 Graphics^ objetGraphique = CreateGraphics();
 			 Pen^ crayon;
-			crayon = gcnew Pen(Color::Black);		
+			crayon = gcnew Pen(Color::Blue);	
 			//donnez les bonnes valeurs à ces variables
 			//vous devez utiliser les valeurs qui se trouvent dans figureCourante
-			int x = 0;
-			int y = 0;
-			int rayon = 0;
-			int cote = 0;
+			int x = figureCourante->getX();
+			int y = figureCourante->getY();
+			int cote = figureCourante->getCote();
+			int rayon = figureCourante->getRayon();
 
 			if (comboFigure->SelectedIndex == 1)
 			 {
@@ -293,7 +307,7 @@ private: System::Void btnPerimetre_Click(System::Object^  sender, System::EventA
 			 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 while (figureCourante != nullptr)
 			 {
-				 
+				 listBoxFigures->Items->Add(figureCourante->calculerPerimetre());
 				 cptFigure++;
 				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 }
