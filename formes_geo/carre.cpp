@@ -14,6 +14,10 @@ Carre::Carre(const Carre& inCarre):Figure(inCarre)
 {
 	cote=inCarre.cote;
 }
+Carre::~Carre() 
+{
+
+}
 
 void Carre::setCote(int inCote)
 {
@@ -32,3 +36,33 @@ float Carre::calculerAire()
 {
 	return (cote * cote);
 }
+void Carre::selectionner(int inX, int inY) 
+{
+	
+	if (inX >= x && inX <= (x + cote)) 
+	{
+		if (inY >= y && inY <= (y+ cote))
+		{
+			estSelectionne = true;
+		}
+		else 
+		{
+			estSelectionne = false;
+		}
+	}
+	else 
+	{
+		estSelectionne = false;
+	}
+	
+}
+  void Carre::modifier(int inX, int inY, int inCote,int inRayon) 
+ {
+	  if (estSelectionne == true)
+	  {
+		  cote = inCote;
+		  x = inX;
+		  y = inY;
+		 
+	  }
+ }

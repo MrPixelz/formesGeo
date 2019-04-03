@@ -20,6 +20,10 @@ Figure::Figure(const Figure& inFigure)
 	y = inFigure.y;
 	estSelectionne = inFigure.estSelectionne;
 }
+Figure:: ~Figure() 
+{
+
+}
 
 int Figure::getX() const
 {
@@ -81,3 +85,11 @@ float Figure::calculerAire()
 {
 	return 0;
 }
+//void Figure::selectionner(int, int) 
+//{
+//
+//}
+// void Figure::modifier(int, int, int,int) 
+//{
+//
+//}

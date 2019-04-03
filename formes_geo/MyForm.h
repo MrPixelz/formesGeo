@@ -280,15 +280,23 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 		 {
 			 Graphics^ objetGraphique = CreateGraphics();
 			 Pen^ crayon;
-			crayon = gcnew Pen(Color::Blue);	
+			 if (figureCourante->EstSelectionne() == true) 
+			 {
+				crayon = gcnew Pen(Color::Red);
+			 }
+			 else 
+			 {
+				 crayon = gcnew Pen(Color::Blue);
+			 }
+				
 			//donnez les bonnes valeurs à ces variables
 			//vous devez utiliser les valeurs qui se trouvent dans figureCourante
 			int x = figureCourante->getX();
 			int y = figureCourante->getY();
 			int cote = figureCourante->getCote();
 			int rayon = figureCourante->getRayon();
-
-			if (comboFigure->SelectedIndex == 1)
+			
+			if (cote!=0)
 			 {
 				 objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
 			 }
@@ -333,7 +341,21 @@ private: System::Void MyForm_MouseClick(System::Object^  sender, System::Windows
 			 while (figureCourante != NULL)
 			 {
 
+				 figureCourante->Deselectionner();
+				 figureCourante->selectionner(e->X, e->Y);
 
+
+				 if (figureCourante->EstSelectionne() == true) 
+				 {
+				textX->Text=figureCourante->getX().ToString();
+				 textY->Text = figureCourante->getY().ToString();
+				 textCote->Text = figureCourante->getCote().ToString();
+				 textRayon->Text = figureCourante->getRayon().ToString();
+				 }
+				 
+				 
+				
+				 
 				 cptFigure++;
 				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 }
@@ -346,8 +368,7 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 			 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 while (figureCourante != NULL)
 			 {
-
-
+				 figureCourante->modifier(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text), Convert::ToInt32(textCote->Text), Convert::ToInt32(textRayon->Text));
 				 cptFigure++;
 				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 }
