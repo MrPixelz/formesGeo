@@ -441,7 +441,7 @@ private: System::Void MyForm_MouseClick(System::Object^  sender, System::Windows
 				 //gna
 				 textRecHauteur->Text = figureCourante->getHauteur().ToString();
 				 textRecLargeur->Text = figureCourante->getLargeur().ToString();
-				 MessageBox::Show(figureCourante);
+				 MessageBox::Show(gcnew String(figureCourante->getType().c_str()));
 				 }
 				 
 				 
