@@ -1,7 +1,7 @@
 #pragma once
 #include "carre.h"
 #include"cercle.h"
-
+#include "rectangle.h"
 const int maxFigures = 50;
 
 class Donnees
