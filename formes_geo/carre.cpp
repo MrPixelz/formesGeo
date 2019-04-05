@@ -66,3 +66,7 @@ void Carre::selectionner(int inX, int inY)
 		 
 	  }
  }
+   string Carre::getType() 
+  {
+	   return "carre";
+  }
