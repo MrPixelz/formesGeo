@@ -52,11 +52,14 @@ float FormeRectangle::calculerPerimetre()
 
 void FormeRectangle::selectionner(int inX,int inY)
 {
-	//if ((inX>mX) && (inX<(mX+largeur)) && (inY>mY) && (inY<(mY+hauteur)))
-	//	estSelectionne = true;
+
+	if ((inX>x) && (inX<(x+largeur)) && (inY>y) && (inY<(y+hauteur)))
+		estSelectionne = true;
 }
+
 
 string FormeRectangle::getType() const
 {
 	return "rectangle";
 }
+

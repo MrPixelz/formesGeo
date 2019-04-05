@@ -89,10 +89,10 @@ float Figure::calculerAire()
 //{
 //
 //}
-// void Figure::modifier(int, int, int,int) 
-//{
-//
-//}
+ void Figure::modifier(int, int, int,int) 
+{
+
+}
 
 
 void Figure::setLargeur(int)

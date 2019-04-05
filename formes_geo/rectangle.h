@@ -19,8 +19,9 @@ class FormeRectangle:public Figure
 	virtual void setHauteur(int);
 	virtual int getLargeur() const;
 	virtual int getHauteur() const;
-	float calculerAire();
-	float calculerPerimetre();
-	void selectionner(int,int);
+	virtual float calculerAire();
+	virtual float calculerPerimetre();
+	virtual void selectionner(int,int);
+	
 };
 #endif
