@@ -478,17 +478,5 @@ private: System::Void btn_calculer_aire_Click(System::Object^  sender, System::E
 		figureCourante = lesFigures.ObtenirFigure(cptFigure);
 	}
 }
-private: System::Void InitializeComponent() {
-	this->SuspendLayout();
-	// 
-	// MyForm
-	// 
-	this->ClientSize = System::Drawing::Size(284, 261);
-	this->Name = L"MyForm";
-	this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-	this->ResumeLayout(false);
-}
-private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-}
 };
 }
