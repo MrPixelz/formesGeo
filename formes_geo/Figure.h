@@ -23,8 +23,16 @@ public:
 	 void setPoint(int X, int Y);
 	 void setX(int);
 	 void setY(int);
+
 	 bool EstSelectionne();
 	 void Deselectionner();
+
+	 virtual void setLargeur(int);
+	 virtual void setHauteur(int);
+	 virtual int getLargeur() const;
+	 virtual int getHauteur() const;
+
+
 	virtual void setCote(int);
 	virtual int getCote() const;
 	virtual void setRayon(int);
