@@ -64,6 +64,11 @@ namespace formes_geo {
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::TextBox^  textRayon;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::TextBox^  textRecHauteur;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::TextBox^  textRecLargeur;
+	private: System::Windows::Forms::Label^  label7;
 
 	private: System::Windows::Forms::Button^  btnModifie;
 
@@ -87,6 +92,11 @@ namespace formes_geo {
 			this->btnModifie = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textRayon = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->textRecHauteur = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->textRecLargeur = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label3
@@ -197,11 +207,54 @@ namespace formes_geo {
 			this->textRayon->Size = System::Drawing::Size(37, 20);
 			this->textRayon->TabIndex = 27;
 			// 
+			// label5
+			// 
+			this->label5->Location = System::Drawing::Point(168, 102);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(54, 22);
+			this->label5->TabIndex = 32;
+			this->label5->Text = L"Largeur :";
+			// 
+			// textRecHauteur
+			// 
+			this->textRecHauteur->Location = System::Drawing::Point(226, 121);
+			this->textRecHauteur->Name = L"textRecHauteur";
+			this->textRecHauteur->Size = System::Drawing::Size(37, 20);
+			this->textRecHauteur->TabIndex = 31;
+			// 
+			// label6
+			// 
+			this->label6->Location = System::Drawing::Point(168, 80);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(66, 16);
+			this->label6->TabIndex = 30;
+			this->label6->Text = L"Rectangle :";
+			// 
+			// textRecLargeur
+			// 
+			this->textRecLargeur->Location = System::Drawing::Point(226, 99);
+			this->textRecLargeur->Name = L"textRecLargeur";
+			this->textRecLargeur->Size = System::Drawing::Size(37, 20);
+			this->textRecLargeur->TabIndex = 29;
+			// 
+			// label7
+			// 
+			this->label7->Location = System::Drawing::Point(168, 124);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(54, 22);
+			this->label7->TabIndex = 33;
+			this->label7->Text = L"Hauteur :";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(892, 490);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->textRecHauteur);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->textRecLargeur);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textRayon);
 			this->Controls->Add(this->btnModifie);
