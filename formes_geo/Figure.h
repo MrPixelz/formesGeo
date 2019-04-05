@@ -41,6 +41,8 @@ public:
 	virtual float calculerAire();
 	virtual void selectionner(int,int)=0;
 	virtual void modifier(int, int, int,int)=0;
+
+	virtual string getType() const;
 };
 
 #endif

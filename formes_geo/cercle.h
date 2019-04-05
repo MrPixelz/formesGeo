@@ -17,5 +17,6 @@ class Cercle:public Figure
 	virtual float calculerAire();
 	virtual void selectionner(int, int);
 	virtual void modifier(int, int, int,int);
+	virtual string getType() const;
 };
 #endif
