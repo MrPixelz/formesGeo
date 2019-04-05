@@ -64,11 +64,15 @@ namespace formes_geo {
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::TextBox^  textRayon;
+
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::TextBox^  textRecHauteur;
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::TextBox^  textRecLargeur;
 	private: System::Windows::Forms::Label^  label7;
+
+	private: System::Windows::Forms::Button^  btn_calculer_aire;
+
 
 	private: System::Windows::Forms::Button^  btnModifie;
 
@@ -92,11 +96,15 @@ namespace formes_geo {
 			this->btnModifie = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textRayon = (gcnew System::Windows::Forms::TextBox());
+
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textRecHauteur = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->textRecLargeur = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+
+			this->btn_calculer_aire = (gcnew System::Windows::Forms::Button());
+
 			this->SuspendLayout();
 			// 
 			// label3
@@ -207,6 +215,7 @@ namespace formes_geo {
 			this->textRayon->Size = System::Drawing::Size(37, 20);
 			this->textRayon->TabIndex = 27;
 			// 
+
 			// label5
 			// 
 			this->label5->Location = System::Drawing::Point(168, 102);
@@ -244,17 +253,32 @@ namespace formes_geo {
 			this->label7->Size = System::Drawing::Size(54, 22);
 			this->label7->TabIndex = 33;
 			this->label7->Text = L"Hauteur :";
+
+			// btn_calculer_aire
+			// 
+			this->btn_calculer_aire->Location = System::Drawing::Point(304, 74);
+			this->btn_calculer_aire->Name = L"btn_calculer_aire";
+			this->btn_calculer_aire->Size = System::Drawing::Size(121, 23);
+			this->btn_calculer_aire->TabIndex = 29;
+			this->btn_calculer_aire->Text = L"Aires des figures";
+			this->btn_calculer_aire->UseVisualStyleBackColor = true;
+			this->btn_calculer_aire->Click += gcnew System::EventHandler(this, &MyForm::btn_calculer_aire_Click);
+
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(892, 490);
+
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textRecHauteur);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->textRecLargeur);
+
+			this->Controls->Add(this->btn_calculer_aire);
+
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textRayon);
 			this->Controls->Add(this->btnModifie);
@@ -431,5 +455,30 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 			 DessinerTout();
 		 }
 
+private: System::Void btn_calculer_aire_Click(System::Object^  sender, System::EventArgs^  e) 
+{
+	int cptFigure = 0;
+	listBoxFigures->Items->Clear();
+	listBoxFigures->Items->Add("Aires des figures:");
+	figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	while (figureCourante != nullptr)
+	{
+		listBoxFigures->Items->Add(figureCourante->calculerAire());
+		cptFigure++;
+		figureCourante = lesFigures.ObtenirFigure(cptFigure);
+	}
+}
+private: System::Void InitializeComponent() {
+	this->SuspendLayout();
+	// 
+	// MyForm
+	// 
+	this->ClientSize = System::Drawing::Size(284, 261);
+	this->Name = L"MyForm";
+	this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+	this->ResumeLayout(false);
+}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
