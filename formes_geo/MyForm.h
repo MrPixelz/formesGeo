@@ -2,6 +2,7 @@
 #include "cercle.h"
 #include "carre.h"
 #include "donnees.h"
+#include "rectangle.h"
 
 namespace formes_geo {
 
@@ -331,9 +332,12 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 						figureCourante = new Cercle();
 					}
 					else 
-				{
-					figureCourante = new Rectangle();
-				}
+					{
+
+					figureCourante = new FormeRectangle();
+						
+					}
+
 				if (comboFigure->SelectedIndex != 0)
 				{					
 
@@ -346,6 +350,9 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 							figureCourante->setRayon(Convert::ToInt32(textRayon->Text));
 							figureCourante->setCote(Convert::ToInt32(textCote->Text));
 							figureCourante->setPoint(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text));
+							figureCourante->setHauteur(Convert::ToInt32(textRecHauteur->Text));
+							figureCourante->setLargeur(Convert::ToInt32(textRecLargeur->Text));
+
 							lesFigures.AjouterFigure(figureCourante);
 						DessinerFigure();
 					}
@@ -377,6 +384,8 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 			int y = figureCourante->getY();
 			int cote = figureCourante->getCote();
 			int rayon = figureCourante->getRayon();
+			int largeur = figureCourante->getLargeur();
+			int hauteur = figureCourante->getHauteur();
 			
 			if (cote!=0)
 			 {
@@ -388,7 +397,7 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 			 }
 			 else 
 			{
-				objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
+				objetGraphique->DrawRectangle(crayon, x, y, largeur, hauteur);
 			}
 
 			 delete crayon;
