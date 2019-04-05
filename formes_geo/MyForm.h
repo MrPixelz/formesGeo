@@ -341,10 +341,7 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 					}
 
 
-				{
-					figureCourante = new FormeRectangle();
-				}
-
+	
 				if (comboFigure->SelectedIndex != 0)
 				{					
 
@@ -476,6 +473,15 @@ private: System::Void btnModifie_Click(System::Object^  sender, System::EventArg
 			 while (figureCourante != NULL)
 			 {
 				 figureCourante->modifier(Convert::ToInt32(textX->Text), Convert::ToInt32(textY->Text), Convert::ToInt32(textCote->Text), Convert::ToInt32(textRayon->Text));
+				 if (figureCourante->EstSelectionne() == true)
+				 {
+					 figureCourante->setHauteur(Convert::ToInt32(textRecHauteur->Text));
+					 figureCourante->setLargeur(Convert::ToInt32(textRecLargeur->Text));
+					 figureCourante->setX(Convert::ToInt32(textX->Text));
+					 figureCourante->setY(Convert::ToInt32(textY->Text));
+
+
+				 }
 				 cptFigure++;
 				 figureCourante = lesFigures.ObtenirFigure(cptFigure);
 			 }
