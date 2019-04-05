@@ -338,6 +338,11 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 						
 					}
 
+
+				{
+					figureCourante = new FormeRectangle();
+				}
+
 				if (comboFigure->SelectedIndex != 0)
 				{					
 
@@ -447,6 +452,10 @@ private: System::Void MyForm_MouseClick(System::Object^  sender, System::Windows
 				 textY->Text = figureCourante->getY().ToString();
 				 textCote->Text = figureCourante->getCote().ToString();
 				 textRayon->Text = figureCourante->getRayon().ToString();
+				 //gna
+				 textRecHauteur->Text = figureCourante->getHauteur().ToString();
+				 textRecLargeur->Text = figureCourante->getLargeur().ToString();
+				// MessageBox::Show(figureCourante);
 				 }
 				 
 				 

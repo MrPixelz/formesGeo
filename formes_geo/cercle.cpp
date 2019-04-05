@@ -64,3 +64,7 @@ int Cercle::getRayon() const
 
 	  }
   }
+  string Cercle::getType() const
+  {
+	  return "Cercle";
+  }
