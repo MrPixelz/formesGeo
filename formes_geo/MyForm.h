@@ -306,6 +306,7 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 			 comboFigure->Items->Add("");
 			 comboFigure->Items->Add("Carre");
 			 comboFigure->Items->Add("Cercle");
+			 comboFigure->Items->Add("Rectangle");
 			 figureCourante = NULL;
 			 InitialiserTextBox();
 		 }
@@ -325,10 +326,14 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 						figureCourante = new Carre();
 								
 					}
-					else
+					else if(comboFigure->SelectedIndex == 2)
 					{
 						figureCourante = new Cercle();
 					}
+					else 
+				{
+					figureCourante = new Rectangle();
+				}
 				if (comboFigure->SelectedIndex != 0)
 				{					
 
@@ -377,10 +382,15 @@ private: System::Void btn_CreerFigure(System::Object^  sender, System::EventArgs
 			 {
 				 objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
 			 }
-			 else
+			 else if(rayon!=0)
 			 {
 				 objetGraphique->DrawEllipse(crayon, x, y, rayon * 2, rayon * 2);
 			 }
+			 else 
+			{
+				objetGraphique->DrawRectangle(crayon, x, y, cote, cote);
+			}
+
 			 delete crayon;
 			 delete objetGraphique;
 		 }
